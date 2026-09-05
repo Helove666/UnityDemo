@@ -32,7 +32,7 @@ public class ExpManager : MonoBehaviour
     {
         Enemy_Health.OnMonsterDefeated += GainExperience;
     }
-    private void OnDisEnable()
+    private void OnDisable()
     {
         Enemy_Health.OnMonsterDefeated -= GainExperience;
     }

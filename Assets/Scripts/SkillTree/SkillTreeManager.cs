@@ -15,7 +15,7 @@ public class SkillTreeManager : MonoBehaviour
         SkillSlot.OnSkillMaxed += HandleSkillMaxed;
         ExpManager.OnLevelUp += UpdateAbilityPoints;
     }
-    public void OnDisEnable()
+    public void OnDisable()
     {
         SkillSlot.OnAbilityPointSpent -= HandleAbilityPointSpent;
         SkillSlot.OnSkillMaxed -= HandleSkillMaxed;
