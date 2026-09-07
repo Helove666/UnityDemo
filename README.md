@@ -2,9 +2,11 @@
 
 一个使用 **Unity 2022.3 LTS + C#** 开发的 2D 俯视角动作 RPG 原型：近战/弓双武器切换、带击退的手感反馈、状态机驱动的敌人 AI、经验升级与技能树，以及 Tilemap 高度遮挡与 Cinemachine 运镜。
 
-<!-- 建议补充：在此放一张游戏运行 GIF 或截图（可录屏后转为 GIF 放入 Docs/ 目录）
-![gameplay](Docs/gameplay.gif)
--->
+## 游戏截图
+
+| 远程攻击（弓） | 技能树面板 | 近战战斗 |
+|:---:|:---:|:---:|
+| <img src="Docs/gameplay-bow.png" width="280" alt="远程攻击（弓）"/> | <img src="Docs/skill-tree.png" width="280" alt="技能树面板"/> | <img src="Docs/gameplay-melee.png" width="280" alt="近战战斗"/> |
 
 ## 操作方式
 
@@ -42,6 +44,7 @@
 
 ```
 Assets/Scripts/
+├── CameraFollow.cs       # 手写平滑跟随相机（主方案为 Cinemachine，此实现保留备用）
 ├── PlayerScripts/        # 玩家侧
 │   ├── PlayerMovement    # 移动/翻转/攻击输入
 │   ├── Player_Combat     # 近战攻击判定与伤害
@@ -53,7 +56,8 @@ Assets/Scripts/
 │   ├── SkillSo           # ScriptableObject 技能数据
 │   ├── SkillSlot         # 槽位升级/前置解锁
 │   ├── SkillTreeManager  # 技能点管理与连锁解锁
-│   └── SkillManager      # 技能效果分发
+│   ├── SkillManager      # 技能效果分发
+│   └── ToggleSkillTree   # 技能树开关（按键 2，控制 Time.timeScale 暂停）
 ├── Enemy_*.cs            # 敌人状态机 AI（移动/战斗/血量/受击）
 └── Tilemap Scripts/      # Elevation_Entry/Exit 高度遮挡
 ```
